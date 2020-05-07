@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:proxy_provider_sample/account_notifier.dart';
-import 'package:proxy_provider_sample/article_list_notifier.dart';
+import 'package:proxy_provider_sample/account_model.dart';
+import 'package:proxy_provider_sample/article_list_model.dart';
 import 'package:proxy_provider_sample/article_list_page.dart';
 
 void main() => runApp(MyApp());
@@ -12,31 +12,31 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'ProxyProvider sample',
       home: ChangeNotifierProvider(
-        create: (context) => AccountNotifier(),
+        create: (context) => AccountModel(),
         child: Scaffold(
           appBar: AppBar(
             title: Text('ProxyProvider sample'),
             actions: <Widget>[
-              Consumer<AccountNotifier>(
-                builder: (context, notifier, _) {
+              Consumer<AccountModel>(
+                builder: (context, model, _) {
                   return InkWell(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: notifier.isMember
+                      child: model.isMember
                           ? Icon(Icons.account_circle)
                           : const Center(child: Text('ログイン')),
                     ),
-                    onTap: () => notifier.isMember = !notifier.isMember,
+                    onTap: () => model.isMember = !model.isMember,
                   );
                 },
               ),
             ],
           ),
-          body: ChangeNotifierProxyProvider<AccountNotifier, ArticleListNotifier>(
-            create: (context) => ArticleListNotifier(),
-            update: (context, accountNotifier, articleListNotifier) {
-              articleListNotifier.updateList(accountNotifier.isMember);
-              return articleListNotifier;
+          body: ChangeNotifierProxyProvider<AccountModel, ArticleListModel>(
+            create: (context) => ArticleListModel(),
+            update: (context, accountModel, articleListModel) {
+              articleListModel.updateList(accountModel.isMember);
+              return articleListModel;
             },
             child: ArticleListPage(),
           ),

@@ -21,7 +21,7 @@ const dataSource = [
   Article(10, '【Flutter】TODOアプリ作った', false),
 ];
 
-class ArticleListNotifier extends ChangeNotifier{
+class ArticleListModel extends ChangeNotifier{
   final articles = <Article>[];
 
   void updateList(bool isMember) {
