@@ -1,16 +1,15 @@
 # proxy_provider_sample
 
-A new Flutter project.
+Qiita に投稿した記事 [【Flutter】ProxyProvider 入門（サンプルアプリ付き）](https://qiita.com/chooyan_eng/items/9a16f6e54c13cb72a04e) のサンプルアプリです。
 
-## Getting Started
+# 動作確認環境
 
-This project is a starting point for a Flutter application.
+* Flutter
 
-A few resources to get you started if this is your first Flutter project:
+```
+$ flutter doctor
+[✓] Flutter (Channel stable, v1.17.0, on Mac OS X 10.15.4 19E287, locale ja-JP)
+```
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Provider
+provider 4.1.0
